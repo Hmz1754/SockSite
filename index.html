@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SockVault - Stand Out from the Foot Up | Novelty Socks & Fun Footwear</title>
+    <meta name="description" content="Discover unique, fun, and comfortable novelty socks at SockVault. From funny puns to adorable animals, we have the perfect socks to express your personality. Free shipping on orders over $25!">
+    <meta name="keywords" content="novelty socks, funny socks, animal socks, food socks, holiday socks, comfortable socks, unique socks, gift socks">
+    <meta name="author" content="SockVault">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sockvault.com/">
+    <meta property="og:title" content="SockVault - Stand Out from the Foot Up">
+    <meta property="og:description" content="Discover unique, fun, and comfortable novelty socks. From funny puns to adorable animals, express your personality with our amazing sock collection!">
+    <meta property="og:image" content="https://sockvault.com/assets/hero.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sockvault.com/">
+    <meta property="twitter:title" content="SockVault - Stand Out from the Foot Up">
+    <meta property="twitter:description" content="Discover unique, fun, and comfortable novelty socks. From funny puns to adorable animals, express your personality with our amazing sock collection!">
+    <meta property="twitter:image" content="https://sockvault.com/assets/hero.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Store",
+        "name": "SockVault",
+        "description": "Novelty socks and fun footwear store",
+        "url": "https://sockvault.com",
+        "logo": "https://sockvault.com/assets/logo.png",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "US"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+1-555-SOCK-123",
+            "contactType": "customer service"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <i class="fas fa-socks"></i>
+                <h2>SockVault</h2>
+            </div>
+            <div class="loading-spinner"></div>
+            <p>Loading amazing socks...</p>
+        </div>
+    </div>
+
+    <div class="promo-banner">🎉 Join our <a href="#">Sock of the Month Club</a> & get exclusive designs every month!</div>
+    <div class="bg-shape shape1"></div>
+    <div class="bg-shape shape2"></div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2><i class="fas fa-socks"></i> SV</h2>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="#products" class="nav-link">Products</a>
+                <a href="cart.html" class="nav-link cart-link">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-badge" onclick="showNewArrivals()">New Arrivals!</div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">SockVault</h1>
+                <p class="hero-subtitle">Stand Out from the Foot Up</p>
+                <button class="cta-button" onclick="scrollToProducts()">Shop Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="featured-categories">
+        <div class="categories-container">
+            <h2 class="categories-title">Featured Categories</h2>
+            <p class="categories-subtitle">Discover your perfect pair from our carefully curated collections</p>
+            <div class="categories-grid">
+                <a href="#products" class="category-card funny" onclick="filterProducts('funny')">
+                    <div class="category-icon">
+                        <i class="fas fa-laugh"></i>
+                    </div>
+                    <h3 class="category-name">Funny</h3>
+                    <p class="category-description">Socks that will make you and everyone around you laugh with clever puns and witty designs.</p>
+                </a>
+                <a href="#products" class="category-card animal" onclick="filterProducts('animal')">
+                    <div class="category-icon">
+                        <i class="fas fa-paw"></i>
+                    </div>
+                    <h3 class="category-name">Animal</h3>
+                    <p class="category-description">From cute cats to fierce dinosaurs, show off your wild side with our animal-themed socks.</p>
+                </a>
+                <a href="#products" class="category-card food" onclick="filterProducts('food')">
+                    <div class="category-icon">
+                        <i class="fas fa-pizza-slice"></i>
+                    </div>
+                    <h3 class="category-name">Food</h3>
+                    <p class="category-description">Delicious designs featuring your favorite foods, perfect for food lovers and culinary enthusiasts.</p>
+                </a>
+                <a href="#products" class="category-card holiday" onclick="filterProducts('holiday')">
+                    <div class="category-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3 class="category-name">Holiday</h3>
+                    <p class="category-description">Celebrate every season with our festive holiday socks that bring cheer to any occasion.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Filter -->
+    <section class="category-filter" id="products">
+        <div class="container">
+            <h2>Shop by Category</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">All Socks</button>
+                <button class="filter-btn" data-category="funny">Funny</button>
+                <button class="filter-btn" data-category="animal">Animal</button>
+                <button class="filter-btn" data-category="food">Food</button>
+                <button class="filter-btn" data-category="holiday">Holiday</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Products Section -->
+    <section class="popular-products">
+        <div class="container">
+            <h2 class="popular-title">🔥 Popular Products</h2>
+            <p class="popular-subtitle">Our best-selling socks that everyone loves!</p>
+            <div class="popular-grid" id="popularGrid">
+                <!-- Popular products will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products">
+        <div class="container">
+            <h2 class="products-title">All Products</h2>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <div class="trust-badges">
+        <div class="trust-badge"><i class="fas fa-lock"></i> SSL Secure</div>
+        <div class="trust-badge"><i class="fas fa-undo"></i> Free Returns</div>
+        <div class="trust-badge"><i class="fas fa-shipping-fast"></i> Fast Shipping</div>
+        <div class="trust-badge"><i class="fas fa-award"></i> Quality Guarantee</div>
+    </div>
+
+    <!-- As Seen On Logos Bar -->
+    <div class="as-seen-on" style="text-align:center; margin-bottom:2rem;">
+        <span style="color:var(--text-secondary);font-weight:600;letter-spacing:1px;">As seen on</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Vogue_logo.svg" alt="Vogue" style="height:22px;margin:0 10px;vertical-align:middle;opacity:0.6;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/GQ_logo.svg" alt="GQ" style="height:22px;margin:0 10px;vertical-align:middle;opacity:0.6;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/BuzzFeed_logo.svg" alt="BuzzFeed" style="height:22px;margin:0 10px;vertical-align:middle;opacity:0.6;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Forbes_logo.svg" alt="Forbes" style="height:22px;margin:0 10px;vertical-align:middle;opacity:0.6;">
+    </div>
+
+    <!-- Quick View Modal -->
+    <div id="quickViewModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeQuickView()">&times;</span>
+            <div id="quickViewContent"></div>
+        </div>
+    </div>
+
+    <!-- Floating Chat Button -->
+    <button class="chat-btn" title="Chat with us!" onclick="alert('Chat support coming soon!')">
+        <i class="fas fa-comments"></i>
+    </button>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="about-container">
+            <h2 class="about-title">About SockVault</h2>
+            <p class="about-subtitle">We believe that socks should be more than just foot coverings – they should be a statement, a conversation starter, and a daily dose of joy.</p>
+            <div class="about-content">
+                <div class="about-feature">
+                    <i class="fas fa-heart"></i>
+                    <h3>Handpicked Designs</h3>
+                    <p>Every sock in our collection is carefully selected for its unique design, quality materials, and ability to bring a smile to your face.</p>
+                </div>
+                <div class="about-feature">
+                    <i class="fas fa-star"></i>
+                    <h3>Premium Quality</h3>
+                    <p>We source only the finest materials to ensure our socks are comfortable, durable, and maintain their vibrant colors wash after wash.</p>
+                </div>
+                <div class="about-feature">
+                    <i class="fas fa-smile"></i>
+                    <h3>Spread Joy</h3>
+                    <p>From funny puns to adorable animals, our socks are designed to brighten your day and make others smile when they catch a glimpse.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Shop With Us Section -->
+    <section class="why-shop-section">
+        <div class="why-shop-container">
+            <h2 class="why-shop-title">Why Shop With Us?</h2>
+            <div class="why-shop-features">
+                <div class="why-shop-feature"><i class="fas fa-shipping-fast"></i><span>Fast Shipping</span></div>
+                <div class="why-shop-feature"><i class="fas fa-leaf"></i><span>Eco-Friendly</span></div>
+                <div class="why-shop-feature"><i class="fas fa-gift"></i><span>Gift Ready</span></div>
+                <div class="why-shop-feature"><i class="fas fa-headset"></i><span>24/7 Support</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews Section -->
+    <section class="reviews-section">
+        <div class="reviews-container">
+            <h2 class="reviews-title">What Our Customers Say</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-avatar"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer"></div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"These socks are the highlight of my wardrobe. So comfy and fun!"</p>
+                    <div class="review-author">– Emily R.</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-avatar"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer"></div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"I get compliments every time I wear my taco socks. Love SockVault!"</p>
+                    <div class="review-author">– Mike D.</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-avatar"><img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Customer"></div>
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Fast shipping and the designs are so unique. Will buy again!"</p>
+                    <div class="review-author">– Sarah K.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup Section -->
+    <section class="newsletter-section">
+        <div class="newsletter-container">
+            <h2 class="newsletter-title">Get 10% Off Your First Order!</h2>
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+                <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Custom Sock Design Section -->
+    <section class="custom-sock-section">
+        <div class="custom-sock-container">
+            <h2 class="custom-sock-title">Design Your Own Sock!</h2>
+            <p class="custom-sock-subtitle">Have a unique idea? Let us bring your sock dreams to life!</p>
+            <form class="custom-sock-form" onsubmit="submitCustomSock(event)">
+                <div class="form-row">
+                    <input type="text" placeholder="First Name" required>
+                    <input type="text" placeholder="Last Name" required>
+                </div>
+                <input type="email" placeholder="Email Address" required>
+                <textarea placeholder="Describe your sock idea... (e.g., 'I want socks with my cat wearing a space helmet')" required rows="4"></textarea>
+                <button type="submit" class="custom-sock-btn">Submit Idea</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Sock of the Month Selection -->
+    <section class="sock-month-section">
+        <div class="sock-month-container">
+            <h2 class="sock-month-title">Vote for Next Month's Sock!</h2>
+            <p class="sock-month-subtitle">Help us choose which sock design to feature next month</p>
+            <div class="sock-options">
+                <div class="sock-option" onclick="voteForSock('space')">
+                    <div class="sock-option-image">🚀</div>
+                    <h3>Space Explorer</h3>
+                    <p>Rockets, planets, and cosmic adventures</p>
+                    <div class="vote-count" id="space-votes">0 votes</div>
+                </div>
+                <div class="sock-option" onclick="voteForSock('ocean')">
+                    <div class="sock-option-image">🌊</div>
+                    <h3>Ocean Life</h3>
+                    <p>Whales, dolphins, and underwater magic</p>
+                    <div class="vote-count" id="ocean-votes">0 votes</div>
+                </div>
+                <div class="sock-option" onclick="voteForSock('forest')">
+                    <div class="sock-option-image">🌲</div>
+                    <h3>Forest Friends</h3>
+                    <p>Owls, foxes, and woodland creatures</p>
+                    <div class="vote-count" id="forest-votes">0 votes</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Referral Section -->
+    <section class="referral-section">
+        <div class="referral-container">
+            <h2 class="referral-title">Refer Friends, Get Free Socks!</h2>
+            <p class="referral-subtitle">Share SockVault with your friends and both get a free mystery sock!</p>
+            <div id="referralSection">
+                <form class="referral-form" onsubmit="generateReferralLink(event)">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="referral-btn">Get Referral Link</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2 class="faq-title">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What sizes do you offer?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer sizes S (6-8), M (9-11), and L (12-14) for most of our socks. Some specialty socks come in one-size-fits-most.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How long does shipping take?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Standard shipping takes 3-5 business days. Express shipping (1-2 days) is available for an additional fee.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What's your return policy?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer a 30-day return policy for unworn socks in original packaging. Just contact us for a return label!</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Are your socks machine washable?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! All our socks are machine washable. We recommend washing in cold water and air drying for best results.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How do I join the Sock of the Month Club?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Click the "Sock of the Month Club" link in our promo banner at the top of the page to sign up for exclusive monthly socks!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>SockVault</h3>
+                    <p>Making your feet happy, one sock at a time.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="cart.html">Cart</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: hello@sockvault.com</p>
+                    <p>Phone: (555) SOCK-123</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="footer-socials">
+                        <a href="#" class="social-icon instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="social-icon twitter" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SockVault. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
