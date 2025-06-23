@@ -36,7 +36,25 @@
 
     <!-- Cart Container -->
     <div class="cart-container">
-        <!-- Cart content will be dynamically loaded here -->
+        <div class="container">
+            <h1>Shopping Cart</h1>
+            
+            <!-- Cart Items -->
+            <div id="cartItems">
+                <!-- Cart items will be dynamically loaded here -->
+            </div>
+            
+            <!-- Cart Summary -->
+            <div id="cartSummary" class="cart-summary" style="display: none;">
+                <div class="cart-summary-header">
+                    <h3>Total:</h3>
+                    <span id="cartTotal" class="cart-total">$0.00</span>
+                </div>
+                <button onclick="checkout()" class="checkout-btn">
+                    Proceed to Checkout
+                </button>
+            </div>
+        </div>
     </div>
 
     <!-- Footer -->

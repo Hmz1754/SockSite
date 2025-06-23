@@ -634,6 +634,11 @@ function addToCart(productId, btn) {
         updateCartCount();
         updateProductButtons();
         
+        // Re-render cart if on cart page
+        if (window.location.pathname.includes('cart.html')) {
+            renderCart();
+        }
+        
         // Remove loading state
         btn.classList.remove('loading');
         btn.textContent = 'Add to Cart';
@@ -662,6 +667,11 @@ function removeFromCart(productId) {
         saveCart();
         updateCartCount();
         updateProductButtons();
+        
+        // Re-render cart if on cart page
+        if (window.location.pathname.includes('cart.html')) {
+            renderCart();
+        }
         
         showNotification(`${product.name} removed from cart!`, 'info');
     }
@@ -933,54 +943,64 @@ function checkout() {
         return;
     }
     
-    showNotification('Redirecting to checkout...', 'info');
-    // In a real app, this would redirect to a payment processor
+    // Redirect to checkout page
+    window.location.href = 'checkout.html';
 }
 
 // Enhanced Cart Rendering
 function renderCart() {
     const cartContainer = document.getElementById('cartItems');
+    const cartSummary = document.getElementById('cartSummary');
     if (!cartContainer) return;
     
     if (cart.length === 0) {
         cartContainer.innerHTML = `
-            <div style="text-align: center; padding: 3rem;">
-                <i class="fas fa-shopping-cart" style="font-size: 4rem; color: var(--text-secondary); margin-bottom: 1rem;"></i>
-                <h3 style="color: var(--text-secondary); margin-bottom: 1rem;">Your cart is empty</h3>
-                <p style="color: var(--text-secondary); margin-bottom: 2rem;">Add some awesome socks to get started!</p>
-                <a href="index.html" style="background: var(--primary-color); color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600;">
+            <div class="empty-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <h3>Your cart is empty</h3>
+                <p>Add some awesome socks to get started!</p>
+                <a href="index.html" class="continue-shopping-btn">
                     Continue Shopping
                 </a>
             </div>
         `;
+        if (cartSummary) cartSummary.style.display = 'none';
         return;
     }
     
     cartContainer.innerHTML = cart.map(item => `
-        <div class="cart-item" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; border: 1px solid var(--border-color); border-radius: 8px; margin-bottom: 1rem;">
-            <img src="${item.image}" alt="${item.name}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;">
-            <div style="flex: 1;">
-                <h4 style="margin: 0 0 0.5rem 0; color: var(--text-primary);">${item.name}</h4>
-                <p style="margin: 0; color: var(--text-secondary);">$${item.price.toFixed(2)}</p>
+        <div class="cart-item">
+            <img src="${item.image}" alt="${item.name}">
+            <div class="cart-item-info">
+                <h4>${item.name}</h4>
+                <p>$${item.price.toFixed(2)}</p>
             </div>
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-                <button onclick="updateQuantity(${item.id}, -1)" style="background: var(--primary-color); color: white; border: none; border-radius: 4px; width: 30px; height: 30px; cursor: pointer;">-</button>
-                <span style="min-width: 30px; text-align: center;">${item.quantity}</span>
-                <button onclick="updateQuantity(${item.id}, 1)" style="background: var(--primary-color); color: white; border: none; border-radius: 4px; width: 30px; height: 30px; cursor: pointer;">+</button>
+            <div class="cart-item-quantity">
+                <button onclick="updateQuantity(${item.id}, -1)">-</button>
+                <span>${item.quantity}</span>
+                <button onclick="updateQuantity(${item.id}, 1)">+</button>
             </div>
-            <button onclick="removeFromCart(${item.id})" style="background: #ef4444; color: white; border: none; border-radius: 4px; padding: 0.5rem; cursor: pointer;">
+            <button onclick="removeFromCart(${item.id})" class="cart-item-remove">
                 <i class="fas fa-trash"></i>
             </button>
         </div>
     `).join('');
     
-    // Update total
+    // Update total and show summary
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     const totalElement = document.getElementById('cartTotal');
     if (totalElement) {
         totalElement.textContent = `$${total.toFixed(2)}`;
     }
+    if (cartSummary) cartSummary.style.display = 'block';
 }
+
+// Make cart functions globally accessible
+window.addToCart = addToCart;
+window.removeFromCart = removeFromCart;
+window.updateQuantity = updateQuantity;
+window.checkout = checkout;
+window.renderCart = renderCart;
 
 // Initialize cart page if on cart.html
 if (window.location.pathname.includes('cart.html')) {
